@@ -23,6 +23,10 @@ if re.search('[A-Z]', senha):
 if re.search('[!@#$%^&*()-+]', senha):
     tipos_necessarios -= 1
 
-# O resultado é apresentado após a expressão condicional averiguar se é necessário
-# inserir caracteres de tipos diferentes ou completar o tamanho mínimo de senha.
+# A expressão condicional avalia qual dos dois cenários é o correto: 1) se
+# faltam mais caracteres de tipos diferentes, mesmo que o tamanho mínimo de
+# senha tenha sido alcançado; 2) se é necessário completar o mínimo de
+# caracteres, pois os diferentes tipos já estão presentes na senha. No primeiro
+# caso o valor atribuído a tipos_necessarios será exibido, na segunda situação
+# exibido o valor de dif_tam.
 print(tipos_necessarios if tipos_necessarios > dif_tam else dif_tam)
